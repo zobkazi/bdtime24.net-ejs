@@ -12,7 +12,7 @@
   <div class="container mt-5">
     <h1 class="text-info mb-4">Edit Profile</h1>
 
-    <form action="/api/profile/update" method="POST" id="updateProfileForm">
+    <form action="/profile/update" method="POST" id="updateProfileForm">
       <div class="mb-3">
         <label for="newUsername" class="form-label">New Username:</label>
         <input type="text" id="newUsername" name="newUsername" value="<%= user.username %>" class="form-control" required>

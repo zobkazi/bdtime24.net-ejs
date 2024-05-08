@@ -8,7 +8,7 @@ const newsSchema = Joi.object({
   description: Joi.string().min(10).max(9000000).required(),
   author: Joi.string().min(3).max(50).required(),
   tag: Joi.string().min(3).max(300).required(),
-  image: Joi.string().min(3).max(100).required(),
+  image: Joi.string().min(3).max(1024).required(),
 });
 
 exports.createNews = async (req, res, next) => {

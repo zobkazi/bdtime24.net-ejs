@@ -5,7 +5,7 @@ const News = require("../../models/newsModel");
 exports.homePage = async (req, res, next) => {
      try {
     const page = parseInt(req.query.page) || 1; // Current page, default is 1
-    const limit = 10; // Number of news articles per page
+    const limit = 9; // Number of news articles per page
 
     const startIndex = (page - 1) * limit; // Starting index for pagination
 

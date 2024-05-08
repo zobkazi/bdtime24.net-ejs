@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <h1>Latest News</h1>
 
     <% if (data.length> 0) { %>
         <div>
@@ -20,14 +19,12 @@
                     <h2>
                         <%= article.title %>
                     </h2>
-                    <p>
-                        <%= article.description %>
-                    </p>
+                    <img src="<%= article.image %>" alt="<%= article.title %>">
                     <p>Author: <%= article.author %>
                     </p>
                     <p>Tag: <%= article.tag %>
                     </p>
-                    <img src="<%= article.image %>" alt="<%= article.title %>">
+
                     <a href="/news/<%= article._id %>">Read More</a>
                 </div>
                 <% }); %>

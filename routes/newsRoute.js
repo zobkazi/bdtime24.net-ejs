@@ -8,7 +8,7 @@ router.post("/createNews", createNews);
 
 router.get("/news", getAllNews);
 
-router.get("/all", getHomeNews);
+router.get("/", getHomeNews);
 
 router.get("/news/:id", getNewsById);
 

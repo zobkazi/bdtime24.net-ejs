@@ -41,19 +41,28 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
+                    <div class="flex flex-cal gap-5">
                         <a href="/news" class="text-white">News</a>
+
+                        <div class="dropdown relative">
+                            <button class="dropbtn text-white">Dropdown 1</button>
+                            <div class="dropdown-content absolute hidden bg-white border rounded-lg shadow-lg">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <a href="#"
-                                class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                                class="text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
                             <a href="#"
                                 class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Courses</a>
                             <a href="#"
                                 class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
 
-                            <!-- First Dropdown -->
                             <div class="dropdown relative">
                                 <button class="dropbtn">Dropdown 1</button>
                                 <div class="dropdown-content absolute hidden bg-white border rounded-lg shadow-lg">
@@ -75,18 +84,20 @@
 
                             <!-- Second Dropdown -->
                             <div class="dropdown relative">
-                                <button class="dropbtn">Dropdown 2</button>
+                                <button class="dropbtn text-white">Career</button>
                                 <div class="dropdown-content absolute hidden bg-white border rounded-lg shadow-lg">
-                                    <a href="#">Link 4</a>
-                                    <a href="#">Link 5</a>
-                                    <a href="#">Link 6</a>
+                                    <a href="#">campus</a>
+                                    <a href="#"> Tech </a>
+                                    <a href="#">Jobs</a>
+                                    <a href="#">Others</a>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="flex md:hidden">
+                    <h1 class="text-center ml-10 text-2xl text-white">bdtime24.net</h1>
                     <button id="toggleMenu" type="button"
                         class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-white focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

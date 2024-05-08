@@ -33,12 +33,8 @@ const newsSchema = new Schema({
         type: String,
         required: [true, 'Image is required'],
         minlength: [3, 'Image must be at least 3 characters long'],
-        maxlength: [100, 'Image cannot exceed 100 characters'],
+        maxlength: [1024, 'Image cannot exceed 1024 characters'],
         trim: true, // Trim whitespaces
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
     },
     views: {
         type: Number,
@@ -50,7 +46,10 @@ const newsSchema = new Schema({
             ref: 'Comment'
         }
     ]
-});
+}, {
+    timestamps: true,
+  }
+);
 
 const News = model('News', newsSchema);
 

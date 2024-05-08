@@ -37,19 +37,19 @@
     <p><strong>Username:</strong> <%= user.username %></p>
     <p><strong>Email:</strong> <%= user.email %></p>
 
-    <form action="/api/logout" method="GET">
+    <form action="/logout" method="GET">
       <button type="submit" class="btn btn-primary">Logout</button>
     </form>
 
     <br />
     <br />
 
-    <a href="/api/profile/edit" class="btn btn-danger">Edit Profile</a>
+    <a href="/profile/edit" class="btn btn-danger">Edit Profile</a>
     <a class="btn btn-info" href="/api/profile/edit">Update</a>
 
 
  <!-- Form to trigger account deletion with confirmation -->
- <form id="deleteAccountForm" action="/api/deleteAccount" method="POST">
+ <form id="deleteAccountForm" action="/deleteAccount" method="POST">
   <!-- Add onclick event to show confirmation -->
   <button type="button" onclick="confirmDelete()">Delete Account</button>
 </form>
