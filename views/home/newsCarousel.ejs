@@ -14,14 +14,21 @@
 
         <div class="container">
             <!-- Carousel -->
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <% data.forEach((article, index)=> { %>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="<%= index %>" <%=index===0
+                            ? 'class="active"' : '' %>></button>
+                        <% }); %>
+                </div>
 
                 <!-- The slideshow/carousel -->
                 <div class="carousel-inner">
                     <% data.forEach((article, index)=> { %>
-                        <div class="carousel-item active">
-                            <img src="<%= article.image  %>" alt="<%= index + 1 %>" class="d-block w-100">
+                        <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                            <img src="<%= article.image %>" alt="Slide <%= index + 1 %>" class="d-block w-100">
                             <div class="carousel-caption">
                                 <h3>
                                     <%= article.title %>
