@@ -1,0 +1,41 @@
+<!-- views/getNews.ejs -->
+<html>
+    <head>
+        <title>Latest News</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+
+    <body class="bg-gray-100">
+        <div class="container mx-auto py-8">
+            <h1 class="text-3xl font-bold mb-4">Latest News</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <% data.forEach((article)=> { %>
+                    <div class="bg-white shadow-md rounded p-4">
+                        <h2 class="text-xl font-bold mb-2">
+                            <%= article.title %>
+                        </h2>
+                        <p class="text-gray-700 mb-4">
+                            <%= article.description %>
+                        </p>
+                        <p class="text-sm text-gray-500">Author: <%= article.author %>
+                        </p>
+                        <p class="text-sm text-gray-500">Tag: <%= article.tag %>
+                        </p>
+                        <img src="<%= article.image %>" alt="<%= article.title %>"
+                            class="w-full h-40 object-cover mb-4">
+                       <a href="/news/<%= article._id %>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">Read More</a>
+                    </div>
+                    <% }) %>
+            </div>
+            <div class="mt-8">
+                <% if (pagination.prev) { %>
+                    <a href="/news?page=<%= pagination.prev.page %>" class="mr-2 text-blue-500">&larr; Previous</a>
+                    <% } %>
+                        <% if (pagination.next) { %>
+                            <a href="/news?page=<%= pagination.next.page %>" class="text-blue-500">Next &rarr;</a>
+                            <% } %>
+            </div>
+        </div>
+    </body>
+
+</html>

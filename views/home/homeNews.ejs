@@ -1,0 +1,52 @@
+<!-- views/home/homeNews.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home News</title>
+    <!-- Include any necessary CSS stylesheets -->
+</head>
+
+<body>
+    <h1>Latest News</h1>
+
+    <% if (data.length> 0) { %>
+        <div>
+            <% data.forEach(article=> { %>
+                <div>
+                    <h2>
+                        <%= article.title %>
+                    </h2>
+                    <p>
+                        <%= article.description %>
+                    </p>
+                    <p>Author: <%= article.author %>
+                    </p>
+                    <p>Tag: <%= article.tag %>
+                    </p>
+                    <img src="<%= article.image %>" alt="<%= article.title %>">
+                    <a href="/news/<%= article._id %>">Read More</a>
+                </div>
+                <% }); %>
+        </div>
+        <% } else { %>
+            <p>No news articles found.</p>
+            <% } %>
+
+                <!-- Pagination Links -->
+                <div>
+                    <% if (pagination.prev) { %>
+                        <a href="/home?page=<%= pagination.prev.page %>">&larr; Previous</a>
+                        <% } %>
+                            <% if (pagination.next) { %>
+                                <a href="/home?page=<%= pagination.next.page %>">Next &rarr;</a>
+                                <% } %>
+                </div>
+
+                <!-- Include any necessary JavaScript files -->
+</body>
+
+</html>
