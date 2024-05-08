@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Menu with Dropdown</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex flex-cal gap-5">
+
+                        <a href="/" class="text-white">Home</a>
+                        <a href="/news" class="text-white">News</a>
+
+                        <div class="dropdown relative">
+                            <button class="dropbtn text-white">সমগ্র বাংলাদেশ</button>
+                            <div class="dropdown-content absolute hidden bg-white border rounded-lg shadow-lg">
+                                <a href="/">Dhaka</a>
+                                <a href="/">Mymensingh</a>
+                                <a href="/">Rongpur</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#"
+                                class="text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium">আন্তর্জাতিক</a>
+                            <a href="#"
+                                class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">অর্থনীতি</a>
+
+                            <div class="dropdown relative">
+                                <button class="dropbtn text-white ">বিশ্ব</button>
+                                <div class="dropdown-content absolute hidden bg-white border rounded-lg shadow-lg">
+                                    <a href="/">ESTE</a>
+                                    <a href="/">NORTH</a>
+                                    <a href="/">WEST</a>
+                                </div>
+                            </div>
+
+                            <!-- First Dropdown -->
+                            <div class="dropdown relative">
+                                <button class="dropbtn text-white">রাজনীতি</button>
+                                <div class="dropdown-content absolute hidden bg-white border rounded-lg shadow-lg">
+                                    <a href="/">BNP</a>
+                                    <a href="/">AM</a>
+                                    <a href="/">PM </a>
+                                </div>
+                            </div>
+
+                            <!-- Second Dropdown -->
+                            <div class="dropdown relative">
+                                <button class="dropbtn text-white">ক্যারিয়ার</button>
+                                <div class="dropdown-content absolute hidden bg-white border rounded-lg shadow-lg">
+                                    <a href="#">campus</a>
+                                    <a href="#"> Tech </a>
+                                    <a href="#">Jobs</a>
+                                    <a href="#">Others</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex md:hidden">
+                    <h1 class="text-center ml-10 text-2xl text-white">bdtime24.net</h1>
+                    <button id="toggleMenu" type="button"
+                        class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="hidden lg:hidden fixed inset-0 bg-black opacity-50 z-40"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="hidden lg:hidden fixed inset-y-0 left-0 z-50 w-64 bg-gray-800 text-white">
+        <div class="p-4">
+            <a href="/" class="block text-gray-300 hover:text-white py-2">সমগ্র বাংলাদেশ</a>
+            <a href="/" class="block text-gray-300 hover:text-white py-2">রাজনীতি</a>
+            <a href="/" class="block text-gray-300 hover:text-white py-2">বিশ্ব</a>
+            <a href="/" class="block text-gray-300 hover:text-white py-2">বাণিজ্য</a>
+        </div>
+        <!-- First Dropdown -->
+        <div class="dropdown relative">
+            <button class="dropbtn">Bangladesh</button>
+            <div class="dropdown-content absolute hidden bg-white border rounded-lg shadow-lg">
+                <a href="/news">Dhaka</a>
+                <a href="/">Mymensingh</a>
+                <a href="/">Rongpur</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle dropdown toggle
+        function toggleDropdown(event) {
+            var dropdowns = document.querySelectorAll('.dropdown-content');
+            dropdowns.forEach(function (dropdown) {
+                if (!dropdown.classList.contains('hidden') && dropdown !== event.target.nextElementSibling) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+            event.target.nextElementSibling.classList.toggle('hidden');
+        }
+
+        // Add event listeners to dropdown buttons
+        var dropdownButtons = document.querySelectorAll('.dropbtn');
+        dropdownButtons.forEach(function (button) {
+            button.addEventListener('click', toggleDropdown);
+        });
+
+        // Toggle sidebar visibility
+        const toggleMenuButton = document.getElementById('toggleMenu');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        toggleMenuButton.addEventListener('click', function () {
+            sidebar.classList.toggle('hidden');
+            sidebarOverlay.classList.toggle('hidden');
+        });
+
+        // Hide sidebar when clicking outside of it
+        sidebarOverlay.addEventListener('click', function () {
+            sidebar.classList.add('hidden');
+            sidebarOverlay.classList.add('hidden');
+        });
+    </script>
+
+</body>
+
+</html>

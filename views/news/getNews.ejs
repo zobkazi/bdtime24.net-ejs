@@ -7,6 +7,81 @@
 </head>
 
 <body class="bg-gray-100">
+
+    <nav class="bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-white font-bold text-3xl">bdtime24.net</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="toggleMenu" type="button" class="text-white hover:text-gray-400 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Desktop menu -->
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <a href="/"
+                            class="text-white hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="/"
+                            class="text-white hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium">সমগ্র
+                            বাংলাদেশ</a>
+                        <a href="/"
+                            class="text-white hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium">বাংলাদেশ</a>
+                        <a href="/"
+                            class="text-white hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium">লাইফস্টাইল</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#" class="text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#" class="text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="#" class="text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="hidden md:hidden fixed inset-0 bg-black opacity-50 z-40"></div>
+    <script>
+        // Toggle mobile menu visibility
+        const toggleMenuButton = document.getElementById('toggleMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        toggleMenuButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+            sidebarOverlay.classList.toggle('hidden');
+        });
+
+        // Hide mobile menu when clicking outside of it
+        sidebarOverlay.addEventListener('click', function () {
+            mobileMenu.classList.add('hidden');
+            sidebarOverlay.classList.add('hidden');
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="container mx-auto py-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
@@ -41,10 +116,13 @@
 
         <div class="mt-8">
             <% if (pagination.prev) { %>
-                <a href="/news?page=<%= pagination.prev.page %>" class="mr-2 text-blue-500">&larr; Previous</a>
+                <a href="/news?page=<%= pagination.prev.page %>"
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-3">&larr;
+                    Previous</a>
                 <% } %>
                     <% if (pagination.next) { %>
-                        <a href="/news?page=<%= pagination.next.page %>" class="text-blue-500">Next &rarr;</a>
+                        <a href="/news?page=<%= pagination.next.page %>"
+                            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Next &rarr;</a>
                         <% } %>
         </div>
     </div>

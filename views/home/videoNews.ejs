@@ -5,24 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="container m-auto">
+<body class="bg-gray-100">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <!-- Add responsive classes for iframe size -->
+            <iframe class="w-full h-48 sm:h-auto md:h-auto"
+                src="https://www.youtube.com/embed/_r58G5iM_NU?si=h2zo3Ut-MtE7d3HT&amp;start=60"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-        <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/_r58G5iM_NU?si=h2zo3Ut-MtE7d3HT&amp;start=60"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe class="w-full h-48 sm:h-auto md:h-auto"
+                src="https://www.youtube.com/embed/1X69V1s7U0c?si=hkYpulVpkwjy5cRB&amp;start=60"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <iframe class="w-full h-48 sm:h-auto md:h-auto"
+                src="https://www.youtube.com/embed/ESxWjZIYj5M?si=rZWZFuNt_1lkwpKN&amp;start=60"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <iframe class="w-full h-48 sm:h-auto md:h-auto"
+                src="https://www.youtube.com/embed/__fOt_BoUUo?si=9-LqVfUyhrJU-any&amp;start=60"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
     </div>
-
-
-    <video class="w-full" autoplay muted controls>
-        <source src="https://youtu.be/Pl9Aj1MmGa8?si=kUScGfOisBVARp4r" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
 </body>
 
 </html>
