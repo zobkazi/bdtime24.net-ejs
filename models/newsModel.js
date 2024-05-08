@@ -12,7 +12,7 @@ const newsSchema = new Schema({
         type: String,
         required: [true, 'Description is required'],
         minlength: [10, 'Description must be at least 10 characters long'],
-        maxlength: [1000, 'Description cannot exceed 1000 characters'],
+        maxlength: [9000000, 'Description cannot exceed 900000 characters'],
         trim: true, // Trim whitespaces
     },
     author: {
@@ -26,7 +26,7 @@ const newsSchema = new Schema({
         type: String,
         required: [true, 'Tag is required'],
         minlength: [3, 'Tag must be at least 3 characters long'],
-        maxlength: [30, 'Tag cannot exceed 30 characters'],
+        maxlength: [300, 'Tag cannot exceed 300 characters'],
         trim: true, // Trim whitespaces
     },
     image: {

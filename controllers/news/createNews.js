@@ -5,9 +5,9 @@ const News = require("../../models/newsModel");
 // Joi schema for news validation
 const newsSchema = Joi.object({
   title: Joi.string().min(3).max(100).required(),
-  description: Joi.string().min(10).max(1000).required(),
+  description: Joi.string().min(10).max(9000000).required(),
   author: Joi.string().min(3).max(50).required(),
-  tag: Joi.string().min(3).max(30).required(),
+  tag: Joi.string().min(3).max(300).required(),
   image: Joi.string().min(3).max(100).required(),
 });
 
